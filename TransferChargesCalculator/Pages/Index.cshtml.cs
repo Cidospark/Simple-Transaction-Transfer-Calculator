@@ -4,12 +4,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace TransferChargesCalculator.Pages
 {
     public class IndexModel : PageModel
     {
-        public AllAmounts CollectionOfAmounts { get; set; }
+
+        public AllFees CollectionofFees { get; set; }
 
         [BindProperty]
         public int Transfer { get; set; }
@@ -24,8 +27,19 @@ namespace TransferChargesCalculator.Pages
         {
             if (ModelState.IsValid)
             {
+                string filePath = "./wwwroot/file/fees.config.json";
                 try
                 {
+                    string jsonRecord;
+                    using (var readerObj = new StreamReader(filePath))
+                    {
+                        jsonRecord = readerObj.ReadToEnd();
+                        CollectionofFees = JsonConvert.DeserializeObject<AllFees>(jsonRecord);
+                    }
+
+
+                   
+
                 }
                 catch (Exception ex)
                 {
@@ -37,7 +51,7 @@ namespace TransferChargesCalculator.Pages
     }
 
     // amount object
-    public class Amount
+    public class FeeObject
     {
         public int minAmount { get; set; }
         public int maxAmount { get; set; }
@@ -45,8 +59,8 @@ namespace TransferChargesCalculator.Pages
     }
 
     // amount collection objects
-    public class AllAmounts
+    public class AllFees
     {
-        public IEnumerable<Amount> Amounts { get; set; }
+        public IEnumerable<FeeObject> Fees { get; set; }
     }
 }
