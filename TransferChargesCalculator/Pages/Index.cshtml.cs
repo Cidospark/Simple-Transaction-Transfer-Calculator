@@ -37,8 +37,13 @@ namespace TransferChargesCalculator.Pages
                         CollectionofFees = JsonConvert.DeserializeObject<AllFees>(jsonRecord);
                     }
 
+                    var transferCharge = from t in CollectionofFees.Fees
+                                         where Transfer <= t.maxAmount && Transfer >= t.minAmount
+                                         select t.feeAmount;
 
-                   
+                    ViewData["result"] = transferCharge.FirstOrDefault().ToString();
+                    ViewData["tranferAmount"] = Transfer;
+
 
                 }
                 catch (Exception ex)

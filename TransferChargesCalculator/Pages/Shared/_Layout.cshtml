@@ -13,16 +13,17 @@
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
               crossorigin="anonymous"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"/>
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
     </environment>
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/css/animate.css" rel="stylesheet" />
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+<body style="background:url('../../images/bg.jpg') no-repeat center; background-size:cover;">
+    <header class="header-bg">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand ml-3" asp-area="" asp-page="/Index">
-                    <div class="d-flex flex-wrap"><h5><b>Parkway Transfer Service</b> | </h5> <small>Simple @ViewData["Title"]</small></div>
+                    <div class="d-flex flex-wrap" style="color:skyblue"><h4><b>Parkway Transfer Service</b> <span class="tog"> | </span></h4> <small style="padding-top:5px;" class="tog"> &nbsp; Simple @ViewData["Title"]</small></div>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -39,7 +40,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted bg-white" style="position:fixed;bottom:0px;width:100%">
         <div class="container">
             &copy; @DateTime.Now.Year - Transfer Charges Calculator - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
