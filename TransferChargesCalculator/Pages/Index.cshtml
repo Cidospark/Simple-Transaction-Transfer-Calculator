@@ -8,10 +8,10 @@
 <div class="">
     <form method="post">
         <div class="form-group row col-sm-5">
-            <label class="col-md-2 col-form-label mr-3">Amount</label>
+            <label asp-for="Transfer" class="col-md-2 col-form-label mr-3">Amount</label>
             <div class="col-md-8 ">
-                <input class="form-control" placeholder="Enter amount" />
-                <span class="text-danger"></span>
+                <input  asp-for="Transfer" min="0" autofocus class="form-control" />
+                <span  asp-validation-for="Transfer" class="text-danger"></span>
             </div>
         </div>
 

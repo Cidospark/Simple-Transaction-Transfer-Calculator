@@ -11,6 +11,11 @@ namespace TransferChargesCalculator.Pages
     {
         public AllAmounts CollectionOfAmounts { get; set; }
 
+        [BindProperty]
+        public int Transfer { get; set; }
+
+        public string Message { get; set; }
+
         public void OnGet()
         {
         }
@@ -19,7 +24,13 @@ namespace TransferChargesCalculator.Pages
         {
             if (ModelState.IsValid)
             {
-
+                try
+                {
+                }
+                catch (Exception ex)
+                {
+                    Message = ex.Message;
+                }
             }
             return Page();
         }
